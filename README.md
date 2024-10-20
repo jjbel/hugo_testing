@@ -49,3 +49,54 @@ hugo new site . --force
 git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
 echo "theme = 'ananke'" >> hugo.toml
 ```
+
+View the website locally
+
+```
+hugo server
+```
+
+Create a file `.gitignore` at the root of the repo, and add:
+
+```
+# OS
+.DS_Store
+Thumbs.db
+
+public/
+
+# FE Setup
+.bin/node_modules/
+/node_modules/
+src/node_modules/
+/dist/
+
+# Hugo
+.hugo_build.lock
+resources/_gen/
+```
+
+Commit the changes
+
+```
+git add .
+git commit -m "hugo init"
+```
+
+## Customize the Homepage
+
+Add the following to `content/en/_index.md`
+
+```md
+---
+title: "BreatheEasy"
+
+description: "Tomorrow should be breathable."
+cascade:
+  featured_image: "/images/bg.jpg"
+---
+
+Welcome to the website of BreatheEasy. Read more below.
+```
+
+Where `/images/bg.jpg` is the background image, add one.
