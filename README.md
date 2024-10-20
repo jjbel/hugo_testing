@@ -91,6 +91,15 @@ Commit the changes.
 
 ## Customize the Homepage
 
+add this to `hugo.toml`
+```toml
+[languages.en]
+title = "Breathe Easy"
+weight = 1
+contentDir = "content/en"
+
+```
+
 Add the following to `content/en/_index.md`
 
 ```md
