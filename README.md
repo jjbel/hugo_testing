@@ -51,16 +51,20 @@ echo "theme = 'ananke'" >> hugo.toml
 ```
 
 ---
+
 ### NOTE
 
 At any point, to view the website locally, run `hugo server`
+
 ```
 
 "Commit the changes" means run with a descriptive message:
 
 ```
+
 git add .
 git commit -m "my creative descriptive message"
+
 ```
 
 and "push" means run `git push`
@@ -70,6 +74,7 @@ and "push" means run `git push`
 Create a file `.gitignore` at the root of the repo, and add:
 
 ```
+
 .DS_Store
 Thumbs.db
 public/
@@ -78,8 +83,9 @@ public/
 src/node_modules/
 /dist/
 .hugo_build.lock
-resources/_gen/
-```
+resources/\_gen/
+
+````
 
 Commit the changes.
 
@@ -97,7 +103,7 @@ cascade:
 ---
 
 Welcome to the website of BreatheEasy. Read more below.
-```
+````
 
 Where `/images/bg.jpg` is the background image, add one.
 
@@ -110,6 +116,7 @@ In source choose "Github Actions"
 
 Create a file `.github/workflows/hugo.yaml`
 Copy-paste this in it:
+
 ```yml
 # Sample workflow for building and deploying a Hugo site to GitHub Pages
 name: Deploy Hugo site to Pages
@@ -150,7 +157,7 @@ jobs:
       - name: Install Hugo CLI
         run: |
           wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
-          && sudo dpkg -i ${{ runner.temp }}/hugo.deb          
+          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
       - name: Install Dart Sass
         run: sudo snap install dart-sass
       - name: Checkout
@@ -172,7 +179,7 @@ jobs:
           hugo \
             --gc \
             --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"          
+            --baseURL "${{ steps.pages.outputs.base_url }}/"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -190,3 +197,10 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 ```
+
+**Now commit and push.**
+
+Wait for a few seconds for the site to build.
+Then you can view the site at https://username.github.io/reponame
+
+To check the status of the build, go to the Actions tab of your repo's github.
